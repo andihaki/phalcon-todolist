@@ -7,7 +7,7 @@ use  Phalcon\Logger;
 return new \Phalcon\Config( [
 	'site'          => [
 		'name'        => 'Application',
-		'url'         => 'https://app.vm',
+		'url'         => 'http://localhost/phalcon-todolist',
 		'description' => 'application',
 		'keywords'    => 'application,phalcon,boilerplate',
 		'project'     => 'application',

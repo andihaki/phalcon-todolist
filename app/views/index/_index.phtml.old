@@ -1,0 +1,8 @@
+<div class="page-header">
+    <h1>Phalcon TodoList</h1>
+</div>
+<p>Please login to access todolist</p>
+
+<?php
+    echo $this->tag->linkTo ("signup", "Signup");
+?>

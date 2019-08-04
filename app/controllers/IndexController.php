@@ -4,6 +4,7 @@ namespace Application\Controllers;
 
 use Application\Core\User;
 use Phalcon\Mvc\View;
+use Application\Models\Users;
 
 class IndexController extends ControllerBase {
 	public function beforeExecuteRoute($dispatcher)
@@ -14,6 +15,15 @@ class IndexController extends ControllerBase {
     public function helloWorldAction() {
 		$this->view->disable();
 		echo "Hello World";
-	}
+    }
+
+    public function indexAction() {
+        $users = Users::find();
+        $this->view->users = $users;
+    }
+    
+    public function signupAction() {
+        
+    }
 }
 

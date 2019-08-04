@@ -22,8 +22,34 @@ class MainRouter extends Group
         $this->add(
             '/',
             [
-                'action' => 'helloworld'
+                // 'action' => 'helloworld'
+                'action' => 'index'
             ]
         );
+
+        $this->add(
+            '/signup',
+            [
+                'action' => 'signup'
+            ]
+        );
+
+        $this->add(
+            '/register',
+            [
+                'controller' => 'user',
+                'action' => 'register'
+            ]
+        );
+
+        $this->add('/todolist', [
+            'controller' => 'todo',
+            'action' => 'index'
+        ]);
+        
+        $this->add('/add-todo', [
+            'controller' => 'todo',
+            'action' => 'addTodo'
+        ]);
     }
 }
