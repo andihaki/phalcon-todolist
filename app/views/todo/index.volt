@@ -1,8 +1,11 @@
-<h1>Todo List</h1>
+<h1>Todo List <strike><small>6 Juta Dollar</small></strike></h1>
 
 <ul>
 {% for todo in todos %}
-    <li>{{ todo.todo }} ~ {{ todo.status == 0 ? 'Uncompleted' : 'Completed' }}  ( <a href="edit-todo">Edit</a> )</li>
+    <li>{{ todo.todo }} ~ {{ todo.status == 0 ? 'Uncompleted' : 'Completed' }}  
+        ( <a href="edit-todo/{{ todo.id }}">Edit</a> )
+        ( <a href="delete-todo/{{ todo.id }}">Delete</a> )
+    </li>
 {% endfor %}
 </ul>
 

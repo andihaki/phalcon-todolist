@@ -51,5 +51,22 @@ class MainRouter extends Group
             'controller' => 'todo',
             'action' => 'addTodo'
         ]);
+
+        $this->add('/edit-todo/:params', [
+            'controller' => 'todo',
+            'action' => 'editTodo',
+            'params' => 1
+        ]);
+
+        $this->add('/update-todo', [
+            'controller' => 'todo',
+            'action' => 'updateTodo',
+        ]);
+
+        $this->add('/delete-todo/:params', [
+            'controller' => 'todo',
+            'action' => 'deleteTodo',
+            'params' => 1
+        ]);
     }
 }
