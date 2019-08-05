@@ -4,3 +4,5 @@
 {% block contents_page %}
 {% endblock %}
 {% include "shared/footer.volt" %}
+{% block script %}
+{% endblock %}

@@ -8,9 +8,6 @@ use Application\Models\Todos;
 class TodoController extends ControllerBase {
     public function indexAction() {
         $todos = Todos::find();
-        // $todos = [
-        //     "todo" => "aa"
-        // ];
         $this->view->todos = $todos;
     }
 
@@ -23,7 +20,7 @@ class TodoController extends ControllerBase {
         );
 
         if ($success) {
-            return $this->view->message = "Success, Add New Todo";
+            $this->view->message = "Success, Add New Todo";
         } else {
             $msg = "Oops, ";
             $messages = $todo->getMessages();
@@ -31,7 +28,7 @@ class TodoController extends ControllerBase {
             foreach ($messages as $message) {
                 $msg += $message->getMessage(). "<br />";
             }
-            return $this->view->message = $msg;
+            $this->view->message = $msg;
         }
     }
 
@@ -48,21 +45,24 @@ class TodoController extends ControllerBase {
         
         $todo = Todos::findFirstByid($id);
         $todo->todo = $this->request->getPost('todo');
-        $todo->status = $this->request->getPost('status');
+        $todo->status = $this->request->getPost('status')
+            ? $this->request->getPost('status')
+            : 0;
+        $todo->last_update = date('Y-m-d H:i:s');
 
         if ($todo->save()) {
-            return $this->view->message = "Update todo OK";
+            $this->view->message = "Update todo OK";
         } else {
-            return $this->view->message = "Update todo FAILED";
+            $this->view->message = "Update todo FAILED";
         }
     }
 
     public function deleteTodoAction($id) {
         $todo = Todos::findFirstByid($id);
         if ($todo->delete()) {
-            return $this->view->message = "Delete todo OK";
+            $this->view->message = "Delete todo OK";
         } else {
-            return $this->view->message = "Delete todo FAILED";
+            $this->view->message = "Delete todo FAILED";
         }
     }
 }
