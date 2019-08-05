@@ -7,7 +7,6 @@ use Application\Models\Todos;
 
 class TodoController extends ControllerBase {
     public function indexAction() {
-        // echo "Todos";
         $todos = Todos::find();
         // $todos = [
         //     "todo" => "aa"
