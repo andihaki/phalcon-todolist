@@ -4,9 +4,9 @@
 <h1 class="text-center">Todo List <strike><small>6 Juta Dollar</small></strike></h1>
 {{ form('add-todo', 'role': 'form', 'class': 'text-center') }}    
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Type new todo...">
+      <input type="text" class="form-control" placeholder="Type new todo..." name="todo">
       <span class="input-group-btn">
-        <button class="btn btn-success" type="button">Add Todo</button>
+        <button class="btn btn-success" type="submit">Add Todo</button>
       </span>
     </div><!-- /input-group -->
 </form>
